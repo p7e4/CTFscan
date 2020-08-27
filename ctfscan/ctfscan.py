@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-__version__ = "1.2"
+__version__ = "1.3"
 
 import sys
 import requests
@@ -9,8 +9,7 @@ from multiprocessing.dummy import Pool as ThreadPool
 logging.basicConfig(format="", level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-data = r"""\
-/flag
+data = r"""/flag
 /flag.php
 /flag.txt
 /.git
@@ -139,9 +138,7 @@ data = r"""\
 /backup.sql
 /backup.sql.gz
 /backup.sql.bz2
-/backup.zip
-
-"""
+/backup.zip"""
 
 def scan(path):
     fullUrl = url.rstrip('\n') + path
@@ -163,5 +160,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 
