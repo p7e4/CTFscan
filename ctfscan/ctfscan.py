@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-__version__ = "1.0"
+__version__ = "1.2"
 
 import sys
 import requests
@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__)
 data = r"""\
 /flag
 /flag.php
+/flag.txt
 /.git
 /.git/HEAD
 /.git/index
@@ -34,26 +35,8 @@ data = r"""\
 /CVS/Root
 /CVS/Entries
 /.bzr/
-/%3f
-/%3f~
-/.%3f.swp
-/.%3f.swo
-/.%3f.swn
-/.%3f.swm
-/.%3f.swl
 /_viminfo
 /.viminfo
-/%3f~
-/%3f~1~
-/%3f~2~
-/%3f~3~
-/%3f.save
-/%3f.save1
-/%3f.save2
-/%3f.save3
-/%3f.bak_Edietplus
-/%3f.bak
-/%3f.back
 /phpinfo.php
 /robots.txt
 /test.php
@@ -94,6 +77,7 @@ data = r"""\
 /web.tar
 /plus
 /0
+/1
 /05/
 /s8qq.txt
 /s8log.txt
