@@ -169,8 +169,8 @@ def main():
     if len(sys.argv) != 2:
         sys.exit("Usage: ctfscan url")
 
-    url = sys.argv[1].rstrip("/")
     global url
+    url = sys.argv[1].rstrip("/")
     
     pool = ThreadPool(processes=6)
     pool.map(scan, data.split("\n"))
