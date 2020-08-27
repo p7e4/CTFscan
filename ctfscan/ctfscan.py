@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-__version__ = "0.3"
+__version__ = "1.0"
 
 import sys
 import requests
@@ -170,7 +170,8 @@ def main():
         sys.exit("Usage: ctfscan url")
 
     url = sys.argv[1].rstrip("/")
-
+    global url
+    
     pool = ThreadPool(processes=6)
     pool.map(scan, data.split("\n"))
     pool.close()
