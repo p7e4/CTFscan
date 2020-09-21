@@ -59,6 +59,7 @@ data = r"""/flag
 /register.php
 /upload.php
 /phpinfo.php
+/ssrf.php
 /t.php
 /1.php
 /l.php
