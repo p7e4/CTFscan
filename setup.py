@@ -15,10 +15,11 @@ setuptools.setup(
     long_description=description,
     long_description_content_type="text/markdown",
     url="https://github.com/p7e4/CTFscan",
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_packages("ctfscan"),
     license="Apache 2.0",
     classifiers=[
         "Programming Language :: Python :: 3.8",
+        'Programming Language :: Python :: 3.9',
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
