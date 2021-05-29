@@ -3,10 +3,12 @@ web scan for ctfer.
 
 ## install
 
-`pip3 install ctfscan`  
+`pip install ctfscan`  
+
 
 ## use
 
 `ctfscan http://localhost`
 
 ...
+

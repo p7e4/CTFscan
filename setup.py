@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import setuptools
 
-with open("README.md", "r") as f:
+with open("README.md") as f:
     description = f.read()
 
 from ctfscan import __version__
@@ -20,8 +20,9 @@ setuptools.setup(
     classifiers=[
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "License :: OSI Approved :: Apache Software License",
-        "Operating System :: OS Independent",
+        "Operating System :: OS Independent"
     ],
     python_requires='>=3.8',
     entry_points={
@@ -29,5 +30,8 @@ setuptools.setup(
             'ctfscan = ctfscan:main'
         ]
     },
+    install_requires=[
+        "arequest"
+    ]
 )
 
