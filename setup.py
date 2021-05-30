@@ -22,7 +22,10 @@ setuptools.setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "License :: OSI Approved :: Apache Software License",
-        "Operating System :: OS Independent"
+        "Operating System :: OS Independent",
+        "Development Status :: 4 - Beta",
+        "Environment :: Console",
+        "Intended Audience :: Information Technology"
     ],
     python_requires='>=3.8',
     entry_points={
