@@ -11,7 +11,7 @@ setuptools.setup(
     version=__version__,
     author="p7e4",
     author_email="p7e4@qq.com",
-    description="web scan for ctfer.",
+    description="web dir scanner",
     long_description=description,
     long_description_content_type="text/markdown",
     url="https://github.com/p7e4/CTFscan",
@@ -32,9 +32,6 @@ setuptools.setup(
         'console_scripts': [
             'ctfscan = ctfscan:main'
         ]
-    },
-    install_requires=[
-        "arequest"
-    ]
+    }
 )
 
