@@ -7,6 +7,7 @@ import logging
 from multiprocessing.dummy import Pool as ThreadPool
 import argparse
 
+requests.packages.urllib3.disable_warnings()
 logging.basicConfig(format="", level=logging.INFO)
 logger = logging.getLogger(__name__)
 
