@@ -10,7 +10,7 @@ import random
 import os
 import re
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 async def fuzzScan(session, url, paths):
     while paths:
@@ -37,10 +37,10 @@ async def dirScan(session, url, paths, notFoundPage):
         if not path or path.startswith("#"): continue
         try:
             async with session.get(f"{url}/{path}", ssl=False, allow_redirects=False) as resp:
-                if (resp.status != 404 and resp.status != notFoundPage["status"]) or compare(await resp.read()):
+                if resp.status != 404 and  (resp.status != notFoundPage["status"] or compare(await resp.read())):
                     print(f"[{resp.status}] /{path}")
         except Exception as e:
-            print(f"Error: `{url}/{path}` {type(e).__name__}: {e}")
+            print(f"{type(e).__name__}: `{url}/{path}`: {e}")
 
 async def dynamicDetect(session, url):
     async def query(path):
@@ -66,14 +66,7 @@ async def dynamicDetect(session, url):
         return a
 
 async def main():
-    epilog = r"""
-    Example:
-        ctfscan "http://localhost"
-        ctfscan "http://localhost" -c customFile.txt
-    Fuzz mode: -p "<strings>, <repeat times>"
-        ctfscan "http://localhost/query?payload={fuzz}" -f "a-zA-Z0-9, 6" # equal to \w, 6
-        ctfscan "http://localhost/query?payload=%{fuzz}" -f "0-9abcdef, 2" # equal to \dabcdef, 2
-    """
+    epilog = 'Fuzz mode: ctfscan "http://host/?q={fuzz}" -f "a-zA-Z0-9, 1" # equal to "\\w, 1"'
     parser = argparse.ArgumentParser(prog="ctfscan", epilog=epilog)
     parser.add_argument("url")
     parser.add_argument("-c", "--file", help="custom dic file")
@@ -104,7 +97,7 @@ async def main():
             r"\d": string.digits
         }.items():
             strings = strings.replace(k, v, 1)
-        fuzz = ["".join(i) for i in (itertools.product(list(set(strings)), repeat=int(n.group(2))))]
+        paths = ["".join(i) for i in (itertools.product(list(set(strings)), repeat=int(n.group(2))))]
 
     elif file:=args.file:
         if not os.path.exists(file):
