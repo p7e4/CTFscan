@@ -8,5 +8,5 @@ A web path scanner for CTF
 
 ## usage
 
-`ctfscan --help`
+`ctfscan http://xxx.com`
 
