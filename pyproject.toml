@@ -1,24 +1,25 @@
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
 [project]
 name = "CTFscan"
-authors = [
-  { name="p7e4", email="p7e4rs@gmail.com" }
-]
+authors = [{name="p7e4"}]
 description = "A web path scanner for CTF"
 readme = "README.md"
-license = {file = "LICENSE"}
-requires-python = ">=3.10"
+license = {text = "GPLv3"}
+requires-python = ">=3.12"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Framework :: aiohttp"
 ]
+keywords = []
 
 dependencies = [
   "aiohttp"
 ]
-
-dynamic = ["version"]
 
 [project.urls]
 repository = "https://github.com/p7e4/CTFscan"
@@ -27,8 +28,6 @@ repository = "https://github.com/p7e4/CTFscan"
 [project.scripts]
 ctfscan = "ctfscan:run"
 
-[tool.setuptools.package-data]
-ctfscan = ["default.txt"]
-
-[tool.setuptools.dynamic]
-version = {attr = "ctfscan.__version__"}
+[tool.pdm.version]
+source = "file"
+path = "ctfscan/cli.py"
