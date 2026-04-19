@@ -1,1 +1,1 @@
-from .ctfscan import __version__, run
+from .cli import run

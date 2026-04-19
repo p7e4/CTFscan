@@ -10,7 +10,7 @@ import random
 import os
 import re
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 async def fuzzScan(session, url, paths):
     while paths:
@@ -100,8 +100,7 @@ async def main():
         paths = ["".join(i) for i in (itertools.product(list(set(strings)), repeat=int(n.group(2))))]
 
     elif file:=args.file:
-        if not os.path.exists(file):
-            if not os.path.exists(file:=files("ctfscan").joinpath(file)):
+        if not (os.path.exists(file) or os.path.exists(file:=files("ctfscan").joinpath(file))):
                 exit(f"Error: `{file}` not found")
         with open(file) as f:
             paths = f.read().split("\n")
@@ -120,7 +119,7 @@ def run():
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        exit("user aborted")
+        exit(" user aborted")
 
 if __name__ == "__main__":
     run()
