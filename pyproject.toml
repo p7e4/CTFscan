@@ -4,6 +4,7 @@ build-backend = "pdm.backend"
 
 [project]
 name = "CTFscan"
+dynamic = ["version"]
 authors = [{name="p7e4"}]
 description = "A web path scanner for CTF"
 readme = "README.md"
